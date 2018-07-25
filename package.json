@@ -1,0 +1,37 @@
+{
+  "name": "jse-cli-miner",
+  "version": "1.0.0",
+  "description": "A very simple and lightweight cli cpu miner for JSECoin's platform mining.",
+  "keywords": [
+    "jsecoin",
+    "miner",
+    "jse"
+  ],
+  "bugs": "https://github.com/felixbrucker/jse-cli-miner/issues",
+  "license": "GPL-3.0-or-later",
+  "author": "Felix Brucker",
+  "directories": {
+    "lib": "./lib"
+  },
+  "repository": "felixbrucker/jse-cli-miner",
+  "dependencies": {
+    "socket.io-client": "^2.1.1"
+  },
+  "main": "./miner.js",
+  "bin": {
+    "jse-cli-miner": "./miner.js"
+  },
+  "scripts": {
+    "eslint": "eslint .",
+    "eslint:fix": "eslint --fix .",
+    "start": "node miner.js"
+  },
+  "engines": {
+    "node": "^7.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0"
+  }
+}
