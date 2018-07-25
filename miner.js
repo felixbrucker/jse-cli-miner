@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const fs = require('fs');
 const Miner = require('./lib');
 const version = require('./lib/version');
