@@ -8,9 +8,15 @@ A very simple and lightweight cli cpu miner for JSECoin's platform mining.
 
 `npm install -g jse-cli-miner`
 
+### Without installing nodejs
+
+Check https://github.com/felixbrucker/jse-cli-miner/releases for pre-built binaries.
+
 ## Configuration
 
-The miner will create a config.json in the current directory. You will need to input your account number in the config field `uid`.
+The miner will create a config.json in the current directory. You will need to input your account number in the config field `uid` and your jseUnique key in the config field `jseUnique`. The jseUnique key can be obtained via the browsers Developer Tools (F12 on most browsers) and entering `user` in the console tab at the bottom. This should be done after logging in.
+
+![Console-Browser](/screens/console-browser.png?raw=true "Console-Browser")
 
 ## Usage
 

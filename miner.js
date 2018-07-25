@@ -16,7 +16,7 @@ console.log(`
 let user = {
   uid: 0,
   session: randString(32),
-  jseUnique: randString(12),
+  jseUnique: '',
 };
 
 if (fs.existsSync(configFile)) {
@@ -26,7 +26,7 @@ if (fs.existsSync(configFile)) {
 }
 
 if (user.uid === 0) {
-  log('Please enter your account number in the config file (uid).');
+  log('Please enter your account number and jseUnique key in the config file (uid, jseUnique).');
   process.exit(0);
 }
 
