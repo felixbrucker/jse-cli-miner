@@ -12,6 +12,7 @@ node_js:
 
 install:
   - npm i -g pkg
+  - npm i
 
 script:
   - npm run eslint
