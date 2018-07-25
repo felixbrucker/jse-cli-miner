@@ -3,15 +3,32 @@ sudo: false
 
 language: node_js
 
+cache:
+  directories:
+  - $HOME/.pkg-cache
+
 node_js:
   - 8
 
 script:
   - npm run eslint
 
+before_deploy:
+  - npm i -g pkg
+  - mkdir releases
+  - pkg --out-path releases .
+
 deploy:
-  provider: npm
-  api_key: $NPM_AUTH_TOKEN
-  email: $NPM_EMAIL
-  on:
-    tags: true
+  - provider: releases
+    api_key:
+      secure: C35v2gux2pRk++J4wxdo7G2/qbNOVGc6PVwqAuRM68KyQnv96XWfPZugv2kVv8RnB6+J1xgFQihvFXpMgrzueUBq2yUyaS/3H6rtUv82EzlvsS+XQPWVpT7B01jn1hjbEfka4njcNTrIt0GOmfUW8lOYuadeSM7SIKG7VwjotNifuJLban53ucRAcSGZCJvxemhuFG8wPXmaN6oxJ1HIIwgZRHX7qEWBY3tams+Gjb8V3T+/kb1lECkPI+f2OsYnjPqwbhYAwfkm6C1DNfQvDuByDpzgkPY+HtzMG9Q4uMuDX2xLzV7vR7ZRG3GoPPt5VKuSrBahbURtBnV8euPOOUtwnbetCqg8LL+If8w9i91KX4sj+65DgjH2x0oH5RLU3YyJn+ziIAvPeIskDDad1EKI+YXXR4/zSX0jApKLZxDlhidCeYUw0nTOH89+RQU+zow9aADtCqrbrMDQuYrVCpelI3o/i0FgyYDbkvdqqFmkedEZMkadQB2P6kGe5rOzvviSWJLaUjrZt6uOXG+JtbpVsoQgWdMBayTQbEuUqztAwaz3RGkDaGMY3KJdmKiAMbMW6lXVRJ1+wZHyjISTZ8T0rIHN3TU1MbpDlL9t5pX8p3lQ+Z0jVnZMjVZimyPqHGgXNSke+YyQxecjm/ZGxcgXqjkoCaMdurQ1UKVNdyg=
+    file_glob: true
+    file: releases/*
+    skip_cleanup: true
+    on:
+      tags: true
+  - provider: npm
+    api_key: $NPM_AUTH_TOKEN
+    email: $NPM_EMAIL
+    on:
+      tags: true
