@@ -1,6 +1,6 @@
 {
   "name": "jse-cli-miner",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A very simple and lightweight cli cpu miner for JSECoin's platform mining.",
   "keywords": [
     "jsecoin",
