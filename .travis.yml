@@ -10,12 +10,11 @@ cache:
 node_js:
   - 8
 
+install:
+  - npm i -g pkg
+
 script:
   - npm run eslint
-
-before_deploy:
-  - npm i -g pkg
-  - mkdir releases
   - pkg --out-path releases .
 
 deploy:
