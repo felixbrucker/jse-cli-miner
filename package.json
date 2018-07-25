@@ -8,7 +8,7 @@
     "jse"
   ],
   "bugs": "https://github.com/felixbrucker/jse-cli-miner/issues",
-  "license": "GPL-3.0-or-later",
+  "license": "GPL-3.0",
   "author": "Felix Brucker",
   "directories": {
     "lib": "./lib"
