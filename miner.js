@@ -15,7 +15,7 @@ console.log(`
 
 let user = {
   uid: 0,
-  session: randString(32),
+  session: '',
   jseUnique: '',
 };
 
@@ -25,8 +25,8 @@ if (fs.existsSync(configFile)) {
   fs.writeFileSync(configFile, JSON.stringify(user, null, 2));
 }
 
-if (user.uid === 0) {
-  log('Please enter your account number and jseUnique key in the config file (uid, jseUnique).');
+if (user.uid === 0 || user.session === '' || user.jseUnique === '') {
+  log('Please fill out your config. For more info see https://github.com/felixbrucker/jse-cli-miner#configuration');
   process.exit(0);
 }
 
@@ -53,17 +53,6 @@ function log(text) {
 
 function printStats() {
   log(`Rewarded Hashes: ${miner.stats.blockRewards}/${miner.stats.submittedHashes} (${((miner.stats.blockRewards / (miner.stats.submittedHashes || 1)) * 100).toFixed(2)}%)`);
-}
-
-function randString(length) {
-  let text = '';
-  const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-
-  for (let i = 0; i < length; i += 1) {
-    text += possible.charAt(Math.floor(Math.random() * possible.length));
-  }
-
-  return text;
 }
 
 setInterval(printStats, 2 * 60 * 1000);
