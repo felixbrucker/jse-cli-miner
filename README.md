@@ -8,6 +8,8 @@ A very simple and lightweight cli cpu miner for JSECoin's platform mining.
 
 JSECoin's Developers do not like and support this miner, so it might stop working at any point, use at your own risk.
 
+**The JSECoin developers have implemented yet another "fix" to stop this miner. While i could just make it work again, this would be a cat and mouse game and i decided to continue the development of this miner as closed source.**
+
 ## Install
 
 `npm install -g jse-cli-miner`
